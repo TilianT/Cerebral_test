@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { state, sequences } from 'cerebral'
 import { connect } from '@cerebral/react'
-import Post from './post'
+import Post from '../../components/post/index'
 import styled from 'styled-components'
+import Loading from '../../components/loading'
 
 export default connect({
-    title: state`title`,
     posts: state`posts`,
     loadPosts: sequences`openPostsPage`,
   },
@@ -24,6 +24,7 @@ export default connect({
       return (
         <Container>
           {
+            posts.length === 0 ? <Loading /> :
             posts.map(post => {
               return <Post title={post.title} id={post.id} key={post.id}/>
             })

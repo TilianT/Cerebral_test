@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../../button'
+import Button from '../button/index'
 import styled from 'styled-components'
 
 export default ({ title, id }) => {
